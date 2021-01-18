@@ -19,3 +19,6 @@ modules:
     - name: srv-api      # required by consumers of CAP services (e.g. approuter)
       properties:
         srv-url: ${default-url}
+   parameters: 
+     memory: 128M
+     disk-quota: 128M
