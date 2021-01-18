@@ -1,0 +1,21 @@
+_schema-version: "3.2"
+ID: hello-world
+version: 0.0.1
+description: "Nodejs hello-world example for testing out transporting mta with cts+"
+
+build-parameters:
+  before-all:
+   - builder: custom
+     commands:
+      - npm install --production
+
+modules:
+ # --------------------- SERVER MODULE ------------------------
+ - name: hello-world
+ # ------------------------------------------------------------
+   type: nodejs
+   path: .
+   provides:
+    - name: srv-api      # required by consumers of CAP services (e.g. approuter)
+      properties:
+        srv-url: ${default-url}
